@@ -19,7 +19,7 @@ class ClosedLoop:
     def run(self, pos):
         self.pos = pos
         self.error = self.ref-self.pos
-        print('Position', self.pos, 'Error:', self.error)
+#         print('Position', self.pos, 'Error:', self.error)
         duty = self.error * self.Kp
         return duty
         

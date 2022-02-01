@@ -41,11 +41,11 @@ class MotorDriver():
         self.ENA.high()
 
         if duty>0:
-            print('Duty positive')
+#             print('Duty positive')
             self.timchan1.pulse_width_percent(duty)
             self.timchan2.pulse_width_percent(0)
         elif duty<=0:
-            print('Duty negative')
+#             print('Duty negative')
             self.timchan1.pulse_width_percent(0)
             self.timchan2.pulse_width_percent(abs(duty))
 

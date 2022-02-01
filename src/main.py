@@ -30,8 +30,8 @@ IN2 = pyb.Pin (pyb.Pin.board.PB5, pyb.Pin.OUT_PP) #motor port A pins
 tim3 = pyb.Timer (3, freq=20000)
 
 
-Kp = float(input('Please type in a proportional gain constant!: '))
-setpoint = float(input('Please type in a position setpoint!: '))
+Kp = float(input())
+setpoint = float(input())
 
 mot1 = motor_drv.MotorDriver(ENA, IN1, IN2, tim3)
 enc1 = EncoderReader.EncoderReader(1)
@@ -43,11 +43,13 @@ while True:
         controller.add_data()
         mot1.set_duty(PWM)
         utime.sleep_ms(10)
+#         print('Sending data!')
     except KeyboardInterrupt:
         mot1.set_duty(0)
         for i in range(len(controller.time)):
             print(controller.time[i], controller.listpos[i])
-        
+        print('Stop Transmission')
+        break
         
     
 
