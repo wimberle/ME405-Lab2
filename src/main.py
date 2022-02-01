@@ -1,9 +1,16 @@
 '''
-    @file main.py
-    @author Jeremy Baechler
-    @author Kendall Chappell
-    @author Matthew Wimberley
-
+    @file       main.py
+    @brief      instantiates all necessary objects for motor control
+    @details    This main file sets up our pins, timer, and enabler objects 
+                to run the motor. As well, the motor, encoder, and controller
+                are all run as objects of their respective class. With these
+                instantiated, we can control the motor output with feedback 
+                from the encoder position.
+                
+    @author     Jeremy Baechler
+    @author     Kendall Chappell
+    @author     Matthew Wimberley
+    @date       31-Jan-2022
 '''
 
 #Pull encoder data
@@ -31,7 +38,7 @@ tim3 = pyb.Timer (3, freq=20000)
 
 
 Kp = float(input())
-setpoint = float(input())
+setpoint = float(input()) #blocking code
 
 mot1 = motor_drv.MotorDriver(ENA, IN1, IN2, tim3)
 enc1 = EncoderReader.EncoderReader(1)
